@@ -1,12 +1,14 @@
-import pygame
-
+import pygame, sys
+from object import*
+from settings import*
 class Game:
     def __init__(self):
+
         self.width = 1000
         self.backgroundImg = pygame.image.load("img/start screen.png")
-    #def draw(self, pic, coords):
-        #screen.blit(pic, coords)
+        self.button = button(200, 125, (20, 20), white)
 
+    
     def run(self):
         pygame.init()
 
@@ -16,7 +18,6 @@ class Game:
 
         clock = pygame.time.Clock()
         running = True
-        self.backgroundImg = pygame.transform.scale(self.backgroundImg, (1024, 768), Dest_surface=None)
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -24,6 +25,8 @@ class Game:
 
             screen.fill((30, 30, 30))
             screen.blit(self.backgroundImg, (0,0))
+
+
 
 
             pygame.display.flip()
