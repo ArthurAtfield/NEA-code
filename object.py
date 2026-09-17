@@ -6,8 +6,9 @@ class button(pygame.sprite.Sprite):
         self.width = width
         self.image = pygame.Surface((self.width , self.height))
         self.image.fill(colour)
-        self.rect = self.image.get_rect(topleft = (pos[0] , pos[1]))
+        self.pos = pos
     def pressed(self, left_click):
+        mouse_pos = pygame.mouse.get_pos()
         key = pygame.mouse.get_pressed()
         if key == left_click:
             return True

@@ -4,9 +4,10 @@ from settings import*
 class Game:
     def __init__(self):
 
-        self.width = 1000
+        self.width = 1024
         self.backgroundImg = pygame.image.load("img/start screen.png")
-        self.button = button(200, 125, (20, 20), white)
+        self.button = button(300, 100, (362, 384), white)
+        
 
     
     def run(self):
@@ -24,7 +25,9 @@ class Game:
                     running = False
 
             screen.fill((30, 30, 30))
-            screen.blit(self.backgroundImg, (0,0))
+            screen.blit(pygame.transform.scale(self.backgroundImg,(1024,768)), (0,0))
+            
+
 
 
 
@@ -35,3 +38,5 @@ class Game:
             clock.tick(60)
 
         pygame.quit()
+    #while run:
+        #mouse_pos = pygame.mouse.get_pos()
