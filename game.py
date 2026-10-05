@@ -23,7 +23,8 @@ class Game:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if self.start_rect.collidepoint(event.pos):
-                        self.start_game = True
+                        play = main_game()
+                        play.run()
                         running = False
             if self.show_hitbox:
                 pygame.draw.rect(screen, (255, 0, 0), self.start_rect, 2)
@@ -43,5 +44,24 @@ class Game:
             clock.tick(60)
 
         pygame.quit()
-    #while run:
-        #mouse_pos = pygame.mouse.get_pos()
+
+class main_game:
+    def __init__(self):
+        self.width = 1024
+        self.NEA_background = pygame.image.load("img/NEA background.png")
+    def run(self):
+        pygame.init()
+        WIDTH, HEIGHT = 1024, 768
+        screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        pygame.display.set_caption("My Pygame Window")
+        clock = pygame.time.Clock()
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+            screen.fill((30, 30, 30))
+            screen.blit(pygame.transform.scale(self.NEA_background,(1024,768)), (0,0))                
+            pygame.display.flip()               
+            clock.tick(60)
