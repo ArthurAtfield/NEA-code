@@ -48,7 +48,7 @@ class Game:
 class main_game:
     def __init__(self):
         self.width = 1024
-        self.NEA_background = pygame.image.load("img/NEA background.png")
+        self.NEA_background = pygame.image.load("img/back_game.png")
     def run(self):
         pygame.init()
         WIDTH, HEIGHT = 1024, 768
