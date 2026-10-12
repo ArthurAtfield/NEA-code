@@ -62,6 +62,9 @@ class main_game:
                     pygame.quit()
                     sys.exit()
             screen.fill((30, 30, 30))
-            screen.blit(pygame.transform.scale(self.NEA_background,(1024,768)), (0,0))                
+            screen.blit(pygame.transform.scale(self.NEA_background,(1024,768)), (0,0))
+            for i in range(4):
+                for x in range(8):
+                    pygame.Rect((54 + (152 * x)), (90 + (128 * i)), 152, 128)        
             pygame.display.flip()               
             clock.tick(60)
