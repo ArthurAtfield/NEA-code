@@ -49,6 +49,9 @@ class main_game:
     def __init__(self):
         self.width = 1024
         self.NEA_background = pygame.image.load("img/back_game.png")
+        for i in range(4):
+            for x in range(8):
+                self.grid = pygame.Rect((54 + (152 * x)), (90 + (128 * i)), 152, 128)
     def run(self):
         pygame.init()
         WIDTH, HEIGHT = 1024, 768
@@ -63,8 +66,6 @@ class main_game:
                     sys.exit()
             screen.fill((30, 30, 30))
             screen.blit(pygame.transform.scale(self.NEA_background,(1024,768)), (0,0))
-            for i in range(4):
-                for x in range(8):
-                    pygame.Rect((54 + (152 * x)), (90 + (128 * i)), 152, 128)        
+            pygame.draw.rect(screen, (255, 255, 255), self.grid, 2)    
             pygame.display.flip()               
             clock.tick(60)
