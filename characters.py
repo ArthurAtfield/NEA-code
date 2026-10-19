@@ -24,3 +24,25 @@ class ranger:
         return self.speed
 
 
+class wizard:
+    def __init__(self):
+        self.pos_code = 3
+        self.idle = pygame.image.load("img/wizard_idle.png").convert_alpha()
+        self.health = 100
+        self.speed = 3
+    def get_pos_code(self):
+        return self.pos_code
+    def get_speed(self):
+        return self.speed
+
+
+class healer:
+    def __init__(self):
+        self.pos_code = 4
+        self.idle = pygame.image.load("img/healer_idle.png").convert_alpha()
+        self.health = 60
+        self.speed = 5
+    def get_pos_code(self):
+        return self.pos_code
+    def get_speed(self):
+        return self.speed

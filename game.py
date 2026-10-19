@@ -2,6 +2,7 @@ import pygame, sys
 from object import*
 from settings import*
 from characters import*
+from enemy import*
 class Game:
     def __init__(self):
         self.width = 1024
@@ -72,6 +73,9 @@ class main_game:
             screen.blit(pygame.transform.scale(self.NEA_background,(1024,768)), (0,0))
             screen.blit(pygame.transform.scale(fighter().idle,(152,128)), (54,90))
             screen.blit(pygame.transform.scale(ranger().idle,(152,128)), (54,218))
+            screen.blit(pygame.transform.scale(wizard().idle,(152,128)), (54,346))
+            screen.blit(pygame.transform.scale(healer().idle,(180,148)), (44,440))
+            screen.blit(pygame.transform.scale(Enemy().idle,(180,148)), (800,200))
             pygame.draw.rect(screen, (255, 255, 255), self.grid, 2)    
             pygame.display.flip()               
             clock.tick(60)

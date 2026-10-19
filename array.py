@@ -9,7 +9,7 @@ class position:
     def move(self, old_pos, new_pos, char):
         if (new_pos[0] - old_pos[0]) + (new_pos[1] - old_pos[1]) > char.get_speed():
             return False
-        if self.pos[new_pos] == 0:
+        if self.pos[new_pos] != 0:
             return False
         else:
             self.pos[old_pos] = 0
