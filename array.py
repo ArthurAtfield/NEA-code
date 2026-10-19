@@ -1,4 +1,5 @@
 import pygame
+from characters import*
 class position:
     def __init__(self):
         self.pos = [{1 , 0 , 0 , 0 , 0 , 0 , 0 , 0} ,
