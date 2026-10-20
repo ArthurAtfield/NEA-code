@@ -7,6 +7,7 @@ class fighter:
         self.idle = pygame.image.load("img/knight_idle.png").convert_alpha()
         self.health = 120
         self.speed = 4
+        self.alive = True
     def get_pos_code(self):
         return self.pos_code
     def get_speed(self):
@@ -18,6 +19,7 @@ class ranger:
         self.idle = pygame.image.load("img/ranger_idle.png").convert_alpha()
         self.health = 80
         self.speed = 4
+        self.alive = True
     def get_pos_code(self):
         return self.pos_code
     def get_speed(self):
@@ -30,6 +32,7 @@ class wizard:
         self.idle = pygame.image.load("img/wizard_idle.png").convert_alpha()
         self.health = 100
         self.speed = 3
+        self.alive = True
     def get_pos_code(self):
         return self.pos_code
     def get_speed(self):
@@ -42,6 +45,7 @@ class healer:
         self.idle = pygame.image.load("img/healer_idle.png").convert_alpha()
         self.health = 60
         self.speed = 5
+        self.alive = True
     def get_pos_code(self):
         return self.pos_code
     def get_speed(self):
