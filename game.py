@@ -61,6 +61,9 @@ class main_game:
         self.healer = healer()
         self.enemy = Enemy()
         self.over = pygame.image.load("img/game_over.png").convert_alpha()
+        self.button_1 = pygame.image.load("img/move_1_button.png").convert_alpha()
+        self.button_2 = pygame.image.load("img/move_2_button.png").convert_alpha()
+        
 
     def run(self):
         pygame.init()
@@ -84,6 +87,8 @@ class main_game:
             screen.blit(pygame.transform.scale(wizard().idle,(152,128)), (54,346))
             screen.blit(pygame.transform.scale(healer().idle,(180,148)), (44,440))
             screen.blit(pygame.transform.scale(Enemy().idle,(180,148)), (800,200))
+            screen.blit(pygame.transform.scale(self.button_1,(226,75)), (20,600))
+            screen.blit(pygame.transform.scale(self.button_2,(226,75)), (266,600))
             pygame.draw.rect(screen, (255, 255, 255), self.grid, 2)    
             pygame.display.flip()               
             clock.tick(60)
