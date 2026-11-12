@@ -12,6 +12,8 @@ class fighter:
         return self.pos_code
     def get_speed(self):
         return self.speed
+    def get_health(self):
+        return self.health
     
 class ranger:
     def __init__(self):
@@ -24,6 +26,8 @@ class ranger:
         return self.pos_code
     def get_speed(self):
         return self.speed
+    def get_health(self):   
+        return self.health
 
 
 class wizard:
@@ -37,6 +41,8 @@ class wizard:
         return self.pos_code
     def get_speed(self):
         return self.speed
+    def get_health(self):
+        return self.health
 
 
 class healer:
@@ -50,3 +56,5 @@ class healer:
         return self.pos_code
     def get_speed(self):
         return self.speed
+    def get_health(self):
+        return self.health

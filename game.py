@@ -63,7 +63,11 @@ class main_game:
         self.over = pygame.image.load("img/game_over.png").convert_alpha()
         self.button_1 = pygame.image.load("img/move_1_button.png").convert_alpha()
         self.button_2 = pygame.image.load("img/move_2_button.png").convert_alpha()
-        
+        self.button_3 = pygame.image.load("img/move_3_button.png").convert_alpha()
+        self.f_health = self.fighter.get_health()
+        self.r_health = self.ranger.get_health()
+        self.w_health = self.wizard.get_health()
+        self.h_health = self.healer.get_health()
 
     def run(self):
         pygame.init()
@@ -89,6 +93,15 @@ class main_game:
             screen.blit(pygame.transform.scale(Enemy().idle,(180,148)), (800,200))
             screen.blit(pygame.transform.scale(self.button_1,(226,75)), (20,600))
             screen.blit(pygame.transform.scale(self.button_2,(226,75)), (266,600))
+            screen.blit(pygame.transform.scale(self.button_3,(226,100)), (20,660))
+            for i in range(self.f_health):
+                pygame.draw.rect(screen, (255, 0, 0), (600 + i, 600, 1, 10))
+            for i in range(self.r_health):
+                pygame.draw.rect(screen, (255, 0, 0), (600 + i, 620, 1, 10))
+            for i in range(self.w_health):
+                pygame.draw.rect(screen, (255, 0, 0), (600 + i, 640, 1, 10))
+            for i in range(self.h_health):
+                pygame.draw.rect(screen, (255, 0, 0), (600 + i, 660, 1, 10))
             pygame.draw.rect(screen, (255, 255, 255), self.grid, 2)    
             pygame.display.flip()               
             clock.tick(60)
