@@ -95,13 +95,13 @@ class main_game:
             screen.blit(pygame.transform.scale(self.button_2,(226,75)), (266,600))
             screen.blit(pygame.transform.scale(self.button_3,(226,100)), (20,660))
             for i in range(self.f_health):
-                pygame.draw.rect(screen, (255, 0, 0), (600 + i, 600, 1, 10))
+                pygame.draw.rect(screen, (255, 0, 0), (600 + 4 * i, 600, 4, 20))
             for i in range(self.r_health):
-                pygame.draw.rect(screen, (255, 0, 0), (600 + i, 620, 1, 10))
+                pygame.draw.rect(screen, (255, 0, 0), (600 + 5 * i, 640, 5, 20))
             for i in range(self.w_health):
-                pygame.draw.rect(screen, (255, 0, 0), (600 + i, 640, 1, 10))
+                pygame.draw.rect(screen, (255, 0, 0), (600 + 4 * i, 680, 4, 20))
             for i in range(self.h_health):
-                pygame.draw.rect(screen, (255, 0, 0), (600 + i, 660, 1, 10))
+                pygame.draw.rect(screen, (255, 0, 0), (600 + 5 * i, 720, 5, 20))
             pygame.draw.rect(screen, (255, 255, 255), self.grid, 2)    
             pygame.display.flip()               
             clock.tick(60)
