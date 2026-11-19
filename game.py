@@ -50,6 +50,7 @@ class Game:
 class main_game:
     def __init__(self):
         self.width = 1024
+        self.screen = pygame.display.set_mode((1024, 768))
         self.NEA_background = pygame.image.load("img/back_game.png")
         for i in range(4):
             for x in range(8):
@@ -68,6 +69,8 @@ class main_game:
         self.r_health = self.ranger.get_health()
         self.w_health = self.wizard.get_health()
         self.h_health = self.healer.get_health()
+        self.turns = [self.fighter, self.ranger, self.wizard, self.healer, self.enemy]
+        self.current_turn = 0
 
     def run(self):
         pygame.init()
@@ -81,19 +84,17 @@ class main_game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if self.grid.collidepoint(event.pos):
-                        print("Grid clicked!")
-            screen.fill((30, 30, 30))
-            screen.blit(pygame.transform.scale(self.NEA_background,(1024,768)), (0,0))
-            screen.blit(pygame.transform.scale(fighter().idle,(152,128)), (54,90))
-            screen.blit(pygame.transform.scale(ranger().idle,(152,128)), (54,218))
-            screen.blit(pygame.transform.scale(wizard().idle,(152,128)), (54,346))
-            screen.blit(pygame.transform.scale(healer().idle,(180,148)), (44,440))
-            screen.blit(pygame.transform.scale(Enemy().idle,(180,148)), (800,200))
-            screen.blit(pygame.transform.scale(self.button_1,(226,75)), (20,600))
-            screen.blit(pygame.transform.scale(self.button_2,(226,75)), (266,600))
-            screen.blit(pygame.transform.scale(self.button_3,(226,100)), (20,660))
+
+            self.screen.fill((30, 30, 30))
+            self.screen.blit(pygame.transform.scale(self.NEA_background,(1024,768)), (0,0))
+            self.screen.blit(pygame.transform.scale(fighter().idle,(152,128)), (54,90))
+            self.screen.blit(pygame.transform.scale(ranger().idle,(152,128)), (54,218))
+            self.screen.blit(pygame.transform.scale(wizard().idle,(152,128)), (54,346))
+            self.screen.blit(pygame.transform.scale(healer().idle,(180,148)), (44,440))
+            self.screen.blit(pygame.transform.scale(Enemy().idle,(180,148)), (800,200))
+            self.screen.blit(pygame.transform.scale(self.button_1,(226,75)), (20,600))
+            self.screen.blit(pygame.transform.scale(self.button_2,(226,75)), (266,600))
+            self.screen.blit(pygame.transform.scale(self.button_3,(226,100)), (20,660))
             for i in range(self.f_health):
                 pygame.draw.rect(screen, (255, 0, 0), (600 + 4 * i, 600, 4, 20))
             for i in range(self.r_health):
@@ -105,6 +106,26 @@ class main_game:
             pygame.draw.rect(screen, (255, 255, 255), self.grid, 2)    
             pygame.display.flip()               
             clock.tick(60)
+            while self.fighter.alive == True or self.ranger.alive == True or self.wizard.alive == True or self.healer.alive == True and self.enemy.alive == True:
+                self.screen.blit(pygame.transform.scale(fighter().swing,(152,128)), (54,90))
+                pygame.time.delay(1000)
+                self.screen.blit(pygame.transform.scale(fighter().idle,(152,128)), (54,90))
+
+                #self.fighter.update()
+                #self.ranger.update()
+                #self.wizard.update()
+                #self.healer.update()
+                #self.enemy.update()
+                #for event in pygame.event.get():
+                    #if event.type == pygame.MOUSEBUTTONDOWN:
+                    
+                        #if self.grid.collidepoint(event.pos):
+                            #pygame.quit()
+                            #sys.exit()
+
+                            
+                
+
             if self.fighter.alive == False and self.ranger.alive == False and self.wizard.alive == False and self.healer.alive == False:
                 screen.blit(pygame.transform.scale(self.over,(800,500)), (100,75))
                 pygame.display.flip()

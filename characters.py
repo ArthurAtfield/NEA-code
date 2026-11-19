@@ -1,10 +1,9 @@
 import pygame
-
-
 class fighter:
     def __init__(self):
         self.pos_code = 1
         self.idle = pygame.image.load("img/knight_idle.png").convert_alpha()
+        self.swing = pygame.image.load("img/knight_swing.png").convert_alpha()
         self.health = 100
         self.speed = 4
         self.alive = True
@@ -14,6 +13,9 @@ class fighter:
         return self.speed
     def get_health(self):
         return self.health
+    def move_1(self):
+        return self.swing
+        
     
 class ranger:
     def __init__(self):
